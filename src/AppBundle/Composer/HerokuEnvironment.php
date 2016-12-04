@@ -12,8 +12,8 @@ class HerokuEnvironment
      */
     public static function populateEnvironment(Event $event)
     {
-        $url = getenv('CLEARDB_DATABASE_URL'); // Если MySQL
-        // $url = getenv('HEROKU_POSTGRESQL_IVORY_URL'); Если установили PostgreSQL
+//        $url = getenv('CLEARDB_DATABASE_URL'); // Если MySQL
+         $url = getenv('HEROKU_POSTGRESQL_IVORY_URL'); 
 
         if ($url) {
             $url = parse_url($url);
