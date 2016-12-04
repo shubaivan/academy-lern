@@ -12,6 +12,10 @@
         ]
     },
     "require": {
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*",
         "php": ">=5.3.9",
         "symfony/symfony": "2.8.*",
         "doctrine/orm": "^2.4.8",
@@ -48,12 +52,29 @@
     "config": {
         "bin-dir": "bin"
     },
+
     "extra": {
+        "heroku": {
+            "framework": "symfony2",
+            "document-root": "web",
+            "php-config": [
+                "date.timezone=Europe/Kiev",
+                "display_errors=off",
+                "short_open_tag=off"
+            ]
+        },
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        }
+            "file": "app/config/parameters.yml",
+            "env-map": {
+                "database_host": "DATABASE_HOST",
+                "database_port": "DATABASE_PORT",
+                "database_name": "DATABASE_NAME",
+                "database_user": "DATABASE_USER",
+                "database_password": "DATABASE_PASSWORD"
+            }
+        },
     }
 }
