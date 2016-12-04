@@ -44,7 +44,6 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts"
-//            "AppBundle\\Composer\\HerokuEnvironment::populateEnvironment"
         ],
         "post-update-cmd": [
             "@symfony-scripts"
