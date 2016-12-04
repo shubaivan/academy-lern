@@ -14,9 +14,14 @@ imports:
 #        query_cache_driver: apc
 
 monolog:
-    # ...
     handlers:
-        # ...
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
         nested:
-            # ...
+            type:  stream
             path: 'php://stderr'
+            level: debug
+        console:
+            type:  console
