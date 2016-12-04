@@ -1,0 +1,46 @@
+security:
+    encoders:
+        AppBundle\Entity\Users: bcrypt
+
+    providers:
+        user:
+            entity:
+                class: AppBundle:Users
+                property: email
+        user_db:
+            entity: { class: AppBundle\Entity\Users, property: email }
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: admin
+                        roles: 'ROLE_ADMIN'
+
+    firewalls:
+        secured_area:
+            anonymous: ~
+            logout:
+                path:   /logout
+                target: /
+            guard:
+                authenticators:
+                    - form_authenticator
+
+        main:
+            pattern: ^/
+            anonymous: ~
+            form_login:
+                provider: user
+                login_path: login
+                check_path: login_check
+                username_parameter: login[email]
+                use_referer: true
+            logout:
+                path: logout
+                target: /
+                invalidate_session: true
+
+    access_control:
+            - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/, roles: ROLE_USER }

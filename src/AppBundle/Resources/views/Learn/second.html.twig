@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} second {% endblock %}
+
+{% block body %}
+
+    {#{{ error }}#}
+    calculate sum {{ firstDigit }} + {{ secondDigit }}
+    <form action="{{ path('second_result_lesson') }}" method="POST">
+        <label for="sum">sum</label>
+        <input type="sum" name="sum" class="form-control"
+               id="sum" placeholder="sum">
+        <button type="submit">submit</button>
+    </form>
+
+
+    {#calculate sum {{ firstDigit }} + {{ secondDigit }}#}
+
+    {#{{ form_start(form) }}#}
+    {#{{ form_errors(form) }}#}
+    {#{{ form_row(form.sum) }}#}
+
+    {#<button type="submit">Next!</button>#}
+    {#{{ form_end(form) }}#}
+
+{% endblock %}

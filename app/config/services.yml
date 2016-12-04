@@ -1,0 +1,10 @@
+parameters:
+    form_authenticator: AppBundle\Security\FormAuthenticator
+
+services:
+    form_authenticator:
+          class: "%form_authenticator%"
+          arguments:
+              - "@router"
+              - "@doctrine.orm.entity_manager"
+              - "@security.password_encoder"

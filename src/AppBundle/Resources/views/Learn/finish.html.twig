@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} fifth {% endblock %}
+
+{% block body %}
+
+    Поздравляем, {{ user.name }} <br>
+    Твоя оценка {{ user.score }} баллов <br>
+    Общее время прохождения теста - {{ scoreTime }} секунд <br>
+
+    <a href="{{ path('homepage') }}">Home</a>
+
+{% endblock %}

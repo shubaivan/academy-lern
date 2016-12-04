@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} third {% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.skills) }}
+
+    <button type="submit">Next!</button>
+    {{ form_end(form) }}
+
+{% endblock %}

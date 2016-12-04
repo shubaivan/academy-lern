@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    hello {{ user.firstName }}
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.name) }}
+
+    <button type="submit">Next!</button>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+ lists users score
+
+ {% for user in users %}
+    <p>{{ user.firstName }} - {{ user.score }}</p>
+ {% endfor %}
+
+ <a href="{{ path('first_lesson') }}">Start to learn</a>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
